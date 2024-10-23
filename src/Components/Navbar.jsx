@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./Button";
-function Navbar() {
+function Navbar({onServiceClick}) {
   return (
     <>
       <header className="top-0 z-20 mx-auto flex flex-row justify-between py-3">
@@ -12,9 +12,7 @@ function Navbar() {
         <div className="flex flex-row justify-around p-8 w-[50vw]">
           <Button
             label="Services"
-            onClick={() => {
-              alert("its us");
-            }}
+            onClick={onServiceClick}
             className={"font-extrabold hover:bg-[#0f305d]"}
           />
           <Button
