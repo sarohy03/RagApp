@@ -116,10 +116,8 @@ function LandingPage() {
         <section className="mt-[2rem] border-2  p-[5em] px-[8em] z-10 bg-slate-200  ">
           {/*Card no 1*/}
 
-          <div className="bg-slate-200 z-10 relative">
-            <div
-              data-aos="fade-up"
-              className=" rounded-3xl shadow-xl flex flex-row justify-between bg-slate-300  "
+          <div className="group bg-slate-200 z-10 relative">
+            <div data-aos="fade-up" className=" rounded-3xl group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300 shadow-xl group-hover:shadow-none flex flex-row justify-between bg-slate-300  "
             >
               <div className="pl-[5em]  w-[50%] py-[10em] z-10 ">
                 <h1 data-aos="" className="text-xl font-semibold">
@@ -154,10 +152,10 @@ function LandingPage() {
           </div>
           {/*Card no 2*/}
 
-          <div className="bg-slate-200 z-10 relative">
+          <div className="group bg-slate-200 z-10 relative">
             <div
               data-aos="fade-up"
-              className=" rounded-3xl shadow-2xl flex flex-row justify-between bg-slate-300 mt-11 "
+              className=" rounded-3xl group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300 shadow-xl group-hover:shadow-none flex flex-row justify-between bg-slate-300   mt-11 "
             >
               <div className=" pl-[5em] py-[5em]">
                 <img
