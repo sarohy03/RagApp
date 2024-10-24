@@ -7,11 +7,12 @@ import pdfs from "../../assets/pdfs.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useRef, useState } from "react";
+import  {scrollToSection} from "./helper" 
 function LandingPage() {
   const ServiceSectionRef = useRef(null);
-  const OnServiceClick = () => {
-    ServiceSectionRef.current.scrollIntoView({ behavior: "smooth" });
-  };
+  const FaqSectionRef = useRef(null);
+  const AboutSectionRef = useRef(null);
+
   const [openIndex, setOpenIndex] = useState(null);
 
   const faqs = [
@@ -40,7 +41,7 @@ function LandingPage() {
   }, []);
   return (
     <>
-      <Navbar onServiceClick={OnServiceClick} />
+      <Navbar scrollToSection={scrollToSection} ServiceSectionRef={ServiceSectionRef} FaqSectionRef={FaqSectionRef} AboutSectionRef={AboutSectionRef}/>
       <body>
         {/*displays the title*/}
         <div className="mt-[13em] flex flex-col justify-center text-center">
@@ -95,7 +96,7 @@ function LandingPage() {
         {/*displays the Services title*/}
 
         <div
-          ref={ServiceSectionRef}
+          ref={ ServiceSectionRef }
           className="text-7xl pt-2 font-bold font-mono  mt-9 flex flex-row justify-center align-middle pt-10 "
         >
           <div className="rounded-3xl shadow-2xl bg-[#011627ff] text-white p-7">
@@ -117,10 +118,10 @@ function LandingPage() {
           {/*Card no 1*/}
 
           <div className="group bg-slate-200 z-10 relative">
-            <div data-aos="fade-up" className=" rounded-3xl group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300 shadow-xl group-hover:shadow-none flex flex-row justify-between bg-slate-300  "
+            <div data-aos="fade-up" className=" rounded-3xl  shadow-xl  flex flex-row justify-between bg-slate-300  "
             >
               <div className="pl-[5em]  w-[50%] py-[10em] z-10 ">
-                <h1 data-aos="" className="text-xl font-semibold">
+                <h1 data-aos="" className="text-xl font-semibold  group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300">
                   <h1 className="text-2xl font-extrabold pb-5">
                     Unlock Deeper Insights with AI-Powered Retrieval and
                     Generation:
@@ -141,7 +142,7 @@ function LandingPage() {
                 </h1>
               </div>
 
-              <div className=" pr-[5em] py-[5em]">
+              <div className=" pr-[5em] py-[5em]  group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300">
                 <img
                   src={vector_db}
                   alt="Logo"
@@ -155,9 +156,9 @@ function LandingPage() {
           <div className="group bg-slate-200 z-10 relative">
             <div
               data-aos="fade-up"
-              className=" rounded-3xl group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300 shadow-xl group-hover:shadow-none flex flex-row justify-between bg-slate-300   mt-11 "
+              className=" rounded-3xl  shadow-xl  flex flex-row justify-between bg-slate-300   mt-11 "
             >
-              <div className=" pl-[5em] py-[5em]">
+              <div className=" pl-[5em] py-[5em] group-hover:shadow-none group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300">
                 <img
                   src={pdfs}
                   alt="Logo"
@@ -165,7 +166,7 @@ function LandingPage() {
                 />
               </div>
               <div className="pr-[5em]  w-[50%] py-[10em] z-10 ">
-                <h1 data-aos="" className="text-xl font-semibold">
+                <h1 data-aos="" className="text-xl font-semibold  group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300">
                   <h1 className="text-2xl font-extrabold pb-5">
                     Data Query Across Multiple Sources:
                   </h1>
@@ -187,7 +188,7 @@ function LandingPage() {
             </div>
           </div>
           {/*Donut shape*/}
-          <div className="relative bottom-[7em] ml-[93%] z-0">
+          <div className="relative bottom-[7em] ml-[93%] z-0  ">
             <Donut
               color="#1e40af"
               size="180px"
@@ -205,7 +206,7 @@ function LandingPage() {
 
         {/*FAQ*/}
 
-        <section className="max-w-xl mx-auto mt-10 bg-slate-200 shadow-2xl rounded-3xl p-8">
+        <section ref={FaqSectionRef} className="max-w-xl mx-auto mt-10 bg-slate-200 shadow-2xl rounded-3xl p-8">
           <h1 className="text-4xl font-bold text-center mb-6 text-[#011627ff]">
             Frequently Asked Questions
           </h1>
@@ -227,7 +228,7 @@ function LandingPage() {
           </div>
         </section>
         {/* About Us Section */}
-        <section className="text-7xl pt-2 font-bold font-mono mt-16 flex flex-col justify-center align-middle text-center">
+        <section ref={AboutSectionRef} className="text-7xl pt-2 font-bold font-mono mt-16 flex flex-col justify-center align-middle text-center">
           <div className="rounded-3xl shadow-2xl bg-[#0f305d] text-white p-7 mx-12">
             <h1>About Us</h1>
             <p className="text-2xl font-normal mt-4">

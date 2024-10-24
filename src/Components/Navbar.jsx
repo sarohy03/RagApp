@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./Button";
-function Navbar({onServiceClick}) {
+function Navbar({scrollToSection , ServiceSectionRef, FaqSectionRef, AboutSectionRef}) {
   return (
     <>
       <header className="top-0 z-20 mx-auto flex flex-row justify-between py-3">
@@ -12,21 +12,18 @@ function Navbar({onServiceClick}) {
         <div className="flex flex-row justify-around p-8 w-[50vw]">
           <Button
             label="Services"
-            onClick={onServiceClick}
+            onClick={() => scrollToSection(ServiceSectionRef)}
             className={"font-extrabold hover:bg-[#0f305d]"}
           />
           <Button
             label="FAQ"
-            onClick={() => {
-              alert("WOW");
-            }}
+            onClick={() => scrollToSection(FaqSectionRef)}
             className={"font-extrabold hover:bg-[#0f305d]"}
           />
           <Button
             label="About Us"
-            onClick={() => {
-              alert("its us");
-            }}
+            onClick={() => scrollToSection(AboutSectionRef)}
+
             className={"font-extrabold hover:bg-[#0f305d]"}
           />
         </div>
