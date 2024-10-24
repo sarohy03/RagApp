@@ -6,11 +6,34 @@ import vector_db from "../../assets/vector_db.png";
 import pdfs from "../../assets/pdfs.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 function LandingPage() {
   const ServiceSectionRef = useRef(null);
   const OnServiceClick = () => {
     ServiceSectionRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const faqs = [
+    {
+      question: "What is Tailwind CSS?",
+      answer:
+        "Tailwind CSS is a utility-first CSS framework that allows you to style your applications directly in your markup.",
+    },
+    {
+      question: "How does React work?",
+      answer:
+        "React is a JavaScript library for building user interfaces. It uses a virtual DOM to optimize DOM updates.",
+    },
+    {
+      question: "What is JSX?",
+      answer:
+        "JSX is a syntax extension for JavaScript that allows you to write HTML-like code directly in JavaScript files.",
+    },
+  ];
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
   };
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -19,6 +42,7 @@ function LandingPage() {
     <>
       <Navbar onServiceClick={OnServiceClick} />
       <body>
+        {/*displays the title*/}
         <div className="mt-[13em] flex flex-col justify-center text-center">
           <div>
             <Circle
@@ -62,9 +86,14 @@ function LandingPage() {
             />
           </div>
         </div>
+
+        {/*displays the line*/}
+
         <div className="flex justify-center items-center mt-[7rem] rounded-full shadow-xl ">
           <div className="w-1/2 border-t-4 border-blue-800 rounded-full  shadow-xl"></div>
         </div>
+        {/*displays the Services title*/}
+
         <div
           ref={ServiceSectionRef}
           className="text-7xl pt-2 font-bold font-mono  mt-9 flex flex-row justify-center align-middle pt-10 "
@@ -81,11 +110,16 @@ function LandingPage() {
             className="inline-block ml-[83%]"
           />
         </div>
+
+        {/*displays the Cards of services*/}
+
         <section className="mt-[2rem] border-2  p-[5em] px-[8em] z-10 bg-slate-200  ">
+          {/*Card no 1*/}
+
           <div className="bg-slate-200 z-10 relative">
             <div
               data-aos="fade-up"
-              className=" border-2 rounded-3xl shadow-xl flex flex-row justify-between bg-slate-200  "
+              className=" rounded-3xl shadow-xl flex flex-row justify-between bg-slate-300  "
             >
               <div className="pl-[5em]  w-[50%] py-[10em] z-10 ">
                 <h1 data-aos="" className="text-xl font-semibold">
@@ -118,12 +152,21 @@ function LandingPage() {
               </div>
             </div>
           </div>
+          {/*Card no 2*/}
+
           <div className="bg-slate-200 z-10 relative">
             <div
               data-aos="fade-up"
-              className=" border-2 rounded-3xl shadow-2xl flex flex-row justify-between bg-slate-200 mt-11 "
+              className=" rounded-3xl shadow-2xl flex flex-row justify-between bg-slate-300 mt-11 "
             >
-              <div className="pl-[5em]  w-[50%] py-[10em] z-10 ">
+              <div className=" pl-[5em] py-[5em]">
+                <img
+                  src={pdfs}
+                  alt="Logo"
+                  className="w-[30em] rounded-3xl shadow-2xl "
+                />
+              </div>
+              <div className="pr-[5em]  w-[50%] py-[10em] z-10 ">
                 <h1 data-aos="" className="text-xl font-semibold">
                   <h1 className="text-2xl font-extrabold pb-5">
                     Data Query Across Multiple Sources:
@@ -143,23 +186,62 @@ function LandingPage() {
                   precision, saving time and reducing manual searches.
                 </h1>
               </div>
-
-              <div className=" pr-[5em] py-[5em]">
-                <img
-                  src={pdfs}
-                  alt="Logo"
-                  className="w-[30em] rounded-3xl shadow-2xl "
-                />
-              </div>
             </div>
           </div>
+          {/*Donut shape*/}
           <div className="relative bottom-[7em] ml-[93%] z-0">
-          <Donut
+            <Donut
               color="#1e40af"
               size="180px"
-            width={["40px", "40px", "60px", "60px"]}
-            zIndex={0}
-          />
+              width={["40px", "40px", "60px", "60px"]}
+              zIndex={0}
+            />
+          </div>
+        </section>
+
+        {/*displays the line*/}
+
+        <div className="flex justify-center items-center mt-[6rem] rounded-full shadow-xl ">
+          <div className="w-1/2 border-t-4 border-blue-800 rounded-full  shadow-xl"></div>
+        </div>
+
+        {/*FAQ*/}
+
+        <section className="max-w-xl mx-auto mt-10 bg-slate-200 shadow-2xl rounded-3xl p-8">
+          <h1 className="text-4xl font-bold text-center mb-6 text-[#011627ff]">
+            Frequently Asked Questions
+          </h1>
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-white shadow-lg rounded-lg p-6">
+                <button
+                  className="w-full text-left text-2xl font-bold text-[#0f305d] focus:outline-none"
+                  onClick={() => toggleFAQ(index)}
+                >
+                  {faq.question}
+                </button>
+                {openIndex === index && (
+                  <div className="mt-4 text-lg text-gray-700">{faq.answer}</div>
+                )}
+                <hr className="mt-4 border-t-2 border-gray-300" />
+              </div>
+            ))}
+          </div>
+        </section>
+        {/* About Us Section */}
+        <section className="text-7xl pt-2 font-bold font-mono mt-16 flex flex-col justify-center align-middle text-center">
+          <div className="rounded-3xl shadow-2xl bg-[#0f305d] text-white p-7 mx-12">
+            <h1>About Us</h1>
+            <p className="text-2xl font-normal mt-4">
+              We are a team of passionate developers and engineers, focused on
+              solving complex problems with efficient software solutions. Our
+              goal is to empower businesses and individuals with cutting-edge
+              technologies that simplify workflows and enhance productivity.
+              Specializing in Retrieval-Augmented Generation (RAG) systems, we
+              provide customized solutions for querying PDFs, websites, text
+              files, and more. Let us help you harness the power of AI to unlock
+              new possibilities for your business.
+            </p>
           </div>
         </section>
       </body>
