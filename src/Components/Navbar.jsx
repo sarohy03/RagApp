@@ -1,43 +1,97 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
-function Navbar({scrollToSection , ServiceSectionRef, FaqSectionRef, AboutSectionRef}) {
+import { FaBars, FaTimes } from "react-icons/fa";
+
+function Navbar({ scrollToSection, ServiceSectionRef, FaqSectionRef, AboutSectionRef }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
-      <header className="top-0 z-20 mx-auto flex flex-row justify-between py-3">
-        <div className="flex flex-row p-8 justify-center w-[50vw]">
-          <h1 className="text-5xl font-extrabold  text-[#011627ff]">
-            THE SOLVER
-          </h1>
+      <header className="top-0 z-20 mx-auto flex flex-row justify-between items-center py-3">
+        {/* Logo */}
+        <div className="p-8 ">
+          <h1 className="text-5xl font-extrabold text-[#011627ff]">THE SOLVER</h1>
         </div>
-        <div className="flex flex-row justify-around p-8 w-[50vw]">
+
+        {/* Desktop Links - Centered */}
+        <div className="hidden lg:flex flex-row space-x-8 items-center mx-auto ml-[20%]">
           <Button
             label="Services"
             onClick={() => scrollToSection(ServiceSectionRef)}
-            className={"font-extrabold hover:bg-[#0f305d]"}
+            className="font-extrabold hover:bg-[#0f305d]"
           />
           <Button
             label="FAQ"
             onClick={() => scrollToSection(FaqSectionRef)}
-            className={"font-extrabold hover:bg-[#0f305d]"}
+            className="font-extrabold hover:bg-[#0f305d]"
           />
           <Button
             label="About Us"
             onClick={() => scrollToSection(AboutSectionRef)}
-
-            className={"font-extrabold hover:bg-[#0f305d]"}
+            className="font-extrabold hover:bg-[#0f305d]"
           />
         </div>
 
-        <div className="flex flex-row justify-evenly p-8 w-[50vw]">
+        {/* Desktop Try It Button - Right Aligned */}
+        <div className="hidden lg:flex p-8 ">
           <Button
             label="Try it"
             onClick={() => {
               alert("its us");
             }}
-            className={"bg-[#0f305d] hover:bg-[#011627ff]   font-extrabold"}
+            className="bg-[#0f305d] hover:bg-[#011627ff] font-extrabold"
           />
         </div>
+
+        {/* Mobile Menu Toggle Button */}
+        <div className="lg:hidden flex items-center p-8">
+          <button onClick={toggleMenu} className="text-3xl text-[#011627ff]">
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
       </header>
+
+      {/* Mobile Dropdown Menu */}
+      {isOpen && (
+        <div className="lg:hidden flex flex-col items-center text-white space-y-4 py-4">
+          <Button
+            label="Services"
+            onClick={() => {
+              scrollToSection(ServiceSectionRef);
+              setIsOpen(false);
+            }}
+            className="font-extrabold  hover:bg-[#011627ff] w-50% text-center"
+          />
+          <Button
+            label="FAQ"
+            onClick={() => {
+              scrollToSection(FaqSectionRef);
+              setIsOpen(false);
+            }}
+            className="font-extrabold hover:bg-[#011627ff] w-50% text-center"
+          />
+          <Button
+            label="About Us"
+            onClick={() => {
+              scrollToSection(AboutSectionRef);
+              setIsOpen(false);
+            }}
+            className="font-extrabold hover:bg-[#011627ff] w-50% text-center"
+          />
+          <Button
+            label="Try it"
+            onClick={() => {
+              alert("its us");
+              setIsOpen(false);
+            }}
+            className="bg-[#0f305d] hover:bg-[#011627ff] font-extrabold w-50% text-center"
+          />
+        </div>
+      )}
     </>
   );
 }

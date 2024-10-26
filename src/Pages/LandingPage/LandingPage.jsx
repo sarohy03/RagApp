@@ -7,7 +7,7 @@ import pdfs from "../../assets/pdfs.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useRef, useState } from "react";
-import  {scrollToSection} from "./helper" 
+import { scrollToSection } from "./helper";
 function LandingPage() {
   const ServiceSectionRef = useRef(null);
   const FaqSectionRef = useRef(null);
@@ -40,63 +40,74 @@ function LandingPage() {
     AOS.init({ duration: 1000 });
   }, []);
   return (
-    <>
-      <Navbar scrollToSection={scrollToSection} ServiceSectionRef={ServiceSectionRef} FaqSectionRef={FaqSectionRef} AboutSectionRef={AboutSectionRef}/>
+    <div className="overflow-hidden">
+      <Navbar
+        scrollToSection={scrollToSection}
+        ServiceSectionRef={ServiceSectionRef}
+        FaqSectionRef={FaqSectionRef}
+        AboutSectionRef={AboutSectionRef}
+      />
       <body>
-        {/*displays the title*/}
-        <div className="mt-[13em] flex flex-col justify-center text-center">
-          <div>
-            <Circle
+        <section className="mt-20 sm:mt-32 lg:mt-40 flex flex-col items-center text-center">
+          {/* Circle Shape */}
+          <div className="   mb-6 sm:mb-10 sm:left-[1000%] border-2 border-cyan-50 lg:mb-10">
+          <Circle
               size={"100px"}
               zIndex="2"
               color="linear-gradient(to right, #1e40af, #0f305d)"
-              className="inline-block ml-[21em] "
+              className=" inline-block  ml-7 sm:ml-[33%]  "
             />
           </div>
-          <div>
-            <p className="text-2xl font-semibold ">A software Solution</p>
-          </div>
-          <div className="mt-[1%]">
-            <h1 className="text-8xl pt-2 font-bold font-mono ">
-              Syestematic Approch For
-            </h1>
-            <h1 className="text-8xl pb-3 font-bold font-mono  ">
-              <p className="text-blue-800 p-4 ">RAG</p>Problems
-            </h1>
-          </div>
-          <div className="mt-[1%]">
-            <CircleGrid
-              color="#1e40af"
-              size="175px"
-              className="inline-block right-[75%] "
-              zIndex={2}
-            />
-            <p className="text-xl font-semibold">
-              Query your PDFs, Websites, text files
+          <div className="z-10 ">
+          {/* Title Text */}
+          <div className="mb-4">
+            <p className="text-lg md:text-xl lg:text-2xl font-semibold">
+              A Software Solution
             </p>
           </div>
+
+          {/* Main Headings */}
+          <div className="mb-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-mono">
+              Systematic Approach For
+            </h1>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-mono">
+              <span className="text-blue-800">RAG</span> Problems
+            </h1>
+          </div>
+
+          {/* CircleGrid and Subtitle */}
+          <div className="relative mb-6 flex items-center justify-center">
+          <CircleGrid
+              color="#1e40af"
+              size="175px"
+              className="inline-block  inline-block  mr-[40em] sm:mr-[120%]   "
+              zIndex={2}
+            />
+            <p className="text-sm md:text-lg lg:text-xl font-semibold mt-12">
+              Query your PDFs, Websites, Text Files
+            </p>
+          </div>
+          </div>
+          {/* Button */}
           <div className="mt-6">
             <Button
               label="Get started"
-              onClick={() => {
-                alert("done");
-              }}
-              className={
-                "bg-[#0f305d] hover:bg-[#011627ff]  py-[15px] font-extrabold"
-              }
+              onClick={() => alert("done")}
+              className="bg-[#0f305d] hover:bg-[#011627ff] py-2 sm:py-3 md:py-4 px-6 sm:px-8 text-base sm:text-lg md:text-xl font-extrabold"
             />
           </div>
-        </div>
 
-        {/*displays the line*/}
+          {/* Divider Line */}
+          <div className="flex justify-center items-center mt-10 sm:mt-14 md:mt-20 lg:mt-24 w-full">
+            <div className="w-3/4 sm:w-2/3 md:w-1/2 border-t-2 sm:border-t-4 border-blue-800 rounded-full"></div>
+          </div>
+        </section>
 
-        <div className="flex justify-center items-center mt-[7rem] rounded-full shadow-xl ">
-          <div className="w-1/2 border-t-4 border-blue-800 rounded-full  shadow-xl"></div>
-        </div>
         {/*displays the Services title*/}
 
         <div
-          ref={ ServiceSectionRef }
+          ref={ServiceSectionRef}
           className="text-7xl pt-2 font-bold font-mono  mt-9 flex flex-row justify-center align-middle pt-10 "
         >
           <div className="rounded-3xl shadow-2xl bg-[#011627ff] text-white p-7">
@@ -108,7 +119,7 @@ function LandingPage() {
             size={"20em"}
             zIndex="0"
             color="linear-gradient(to right, #1e40af, #0f305d)"
-            className="inline-block ml-[83%]"
+            className="inline-block ml-[83%] "
           />
         </div>
 
@@ -118,10 +129,15 @@ function LandingPage() {
           {/*Card no 1*/}
 
           <div className="group bg-slate-200 z-10 relative">
-            <div data-aos="fade-up" className=" rounded-3xl  shadow-xl  flex flex-row justify-between bg-slate-300  "
+            <div
+              data-aos="fade-up"
+              className=" rounded-3xl  shadow-xl  flex flex-row justify-between bg-slate-300  "
             >
               <div className="pl-[5em]  w-[50%] py-[10em] z-10 ">
-                <h1 data-aos="" className="text-xl font-semibold  group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300">
+                <h1
+                  data-aos=""
+                  className="text-xl font-semibold  group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300"
+                >
                   <h1 className="text-2xl font-extrabold pb-5">
                     Unlock Deeper Insights with AI-Powered Retrieval and
                     Generation:
@@ -166,7 +182,10 @@ function LandingPage() {
                 />
               </div>
               <div className="pr-[5em]  w-[50%] py-[10em] z-10 ">
-                <h1 data-aos="" className="text-xl font-semibold  group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300">
+                <h1
+                  data-aos=""
+                  className="text-xl font-semibold  group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300"
+                >
                   <h1 className="text-2xl font-extrabold pb-5">
                     Data Query Across Multiple Sources:
                   </h1>
@@ -206,7 +225,10 @@ function LandingPage() {
 
         {/*FAQ*/}
 
-        <section ref={FaqSectionRef} className="max-w-xl mx-auto mt-10 bg-slate-200 shadow-2xl rounded-3xl p-8">
+        <section
+          ref={FaqSectionRef}
+          className="max-w-xl mx-auto mt-10 bg-slate-200 shadow-2xl rounded-3xl p-8"
+        >
           <h1 className="text-4xl font-bold text-center mb-6 text-[#011627ff]">
             Frequently Asked Questions
           </h1>
@@ -228,7 +250,10 @@ function LandingPage() {
           </div>
         </section>
         {/* About Us Section */}
-        <section ref={AboutSectionRef} className="text-7xl pt-2 font-bold font-mono mt-16 flex flex-col justify-center align-middle text-center">
+        <section
+          ref={AboutSectionRef}
+          className="text-7xl pt-2 font-bold font-mono mt-16 flex flex-col justify-center align-middle text-center"
+        >
           <div className="rounded-3xl shadow-2xl bg-[#0f305d] text-white p-7 mx-12">
             <h1>About Us</h1>
             <p className="text-2xl font-normal mt-4">
@@ -244,7 +269,7 @@ function LandingPage() {
           </div>
         </section>
       </body>
-    </>
+    </div>
   );
 }
 
