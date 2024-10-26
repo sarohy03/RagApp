@@ -257,11 +257,11 @@ function LandingPage() {
         {/* About Us Section */}
         <section
   ref={AboutSectionRef}
-  className="text-7xl pt-2 font-bold font-mono mt-16 flex flex-col justify-center align-middle text-center"
+  className="text-7xl pt-2 font-bold mt-16 flex flex-col justify-center align-middle text-center"
 >
-  <div className="rounded-3xl shadow-2xl bg-[#0f305d] text-white p-7 mx-12">
-    <h1>About Us</h1>
-    <p className="text-2xl font-normal mt-4">
+  <div className="rounded-3xl shadow-2xl bg-[#0f305d] text-white p-7 mx-12 ">
+    <h1 className="text-4xl md:text-7xl font-extrabold font-mono ">About Us  </h1>
+    <p className="text-sm md:text-2xl font-mono mt-4">
       We are a team of passionate developers and engineers, focused on
       solving complex problems with efficient software solutions. Our
       goal is to empower businesses and individuals with cutting-edge
