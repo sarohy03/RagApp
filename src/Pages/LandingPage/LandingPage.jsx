@@ -17,21 +17,27 @@ function LandingPage() {
 
   const faqs = [
     {
-      question: "What is Tailwind CSS?",
+      question: "What is Retrieval-Augmented Generation (RAG)?",
       answer:
-        "Tailwind CSS is a utility-first CSS framework that allows you to style your applications directly in your markup.",
+        "Retrieval-Augmented Generation (RAG) is a system that combines information retrieval and natural language generation. It enhances data queries by not only fetching relevant information but also providing contextually accurate responses. Our RAG solution empowers users to uncover insights from various data sources efficiently.",
     },
     {
-      question: "How does React work?",
+      question: "How can I query my data effectively?",
       answer:
-        "React is a JavaScript library for building user interfaces. It uses a virtual DOM to optimize DOM updates.",
+        "You can query your data effectively by utilizing our RAG system, which allows you to search through PDFs, websites, and text files seamlessly. Simply input natural language queries, and our system retrieves the most relevant information from your indexed data, providing precise results that enhance decision-making.",
     },
     {
-      question: "What is JSX?",
+      question: "What types of data can I use with your solution?",
       answer:
-        "JSX is a syntax extension for JavaScript that allows you to write HTML-like code directly in JavaScript files.",
+        "Our solution supports a wide range of data types, including PDFs, web pages, and text files. This flexibility allows you to extract information from various sources, making it easier to manage and utilize your data across different formats.",
+    },
+    {
+      question: "How does your AI-powered system enhance data retrieval?",
+      answer:
+        "Our AI-powered system enhances data retrieval by understanding the context behind your queries. Unlike traditional keyword-based searches, our RAG system leverages generative AI to deliver more accurate and contextually relevant results, ensuring you find exactly what you're looking for even in large or unstructured datasets.",
     },
   ];
+  
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -48,10 +54,10 @@ function LandingPage() {
         AboutSectionRef={AboutSectionRef}
       />
       <body>
-        <section className="mt-20 sm:mt-32 lg:mt-40 flex flex-col items-center text-center">
+        <section className="mt-20 sm:mt-32 lg:mt-40 flex flex-col items-center text-center ">
           {/* Circle Shape */}
-          <div className="   mb-6 sm:mb-10 sm:left-[1000%] border-2 border-cyan-50 lg:mb-10">
-          <Circle
+          <div className="   mb-6 sm:mb-10 sm:left-[1000%] border-2 border-cyan-50 lg:mb-10 overflow-x-hidden">
+            <Circle
               size={"100px"}
               zIndex="2"
               color="linear-gradient(to right, #1e40af, #0f305d)"
@@ -59,35 +65,35 @@ function LandingPage() {
             />
           </div>
           <div className="z-10 ">
-          {/* Title Text */}
-          <div className="mb-4">
-            <p className="text-lg md:text-xl lg:text-2xl font-semibold">
-              A Software Solution
-            </p>
-          </div>
+            {/* Title Text */}
+            <div className="mb-4">
+              <p className="text-lg md:text-xl lg:text-2xl font-semibold">
+                A Software Solution
+              </p>
+            </div>
 
-          {/* Main Headings */}
-          <div className="mb-4">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-mono">
-              Systematic Approach For
-            </h1>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-mono">
-              <span className="text-blue-800">RAG</span> Problems
-            </h1>
-          </div>
+            {/* Main Headings */}
+            <div className="mb-4">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-mono">
+                Systematic Approach For
+              </h1>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-mono">
+                <span className="text-blue-800">RAG</span> Problems
+              </h1>
+            </div>
 
-          {/* CircleGrid and Subtitle */}
-          <div className="relative mb-6 flex items-center justify-center">
-          <CircleGrid
-              color="#1e40af"
-              size="175px"
-              className="inline-block  inline-block  mr-[40em] sm:mr-[120%]   "
-              zIndex={2}
-            />
-            <p className="text-sm md:text-lg lg:text-xl font-semibold mt-12">
-              Query your PDFs, Websites, Text Files
-            </p>
-          </div>
+            {/* CircleGrid and Subtitle */}
+            <div className="relative mb-6 flex items-center justify-center">
+              <CircleGrid
+                color="#1e40af"
+                size="175px"
+                className="inline-block  inline-block  mr-[40em] sm:mr-[120%]   "
+                zIndex={2}
+              />
+              <p className="text-sm md:text-lg lg:text-xl font-semibold mt-12">
+                Query your PDFs, Websites, Text Files
+              </p>
+            </div>
           </div>
           {/* Button */}
           <div className="mt-6">
@@ -108,12 +114,15 @@ function LandingPage() {
 
         <div
           ref={ServiceSectionRef}
-          className="text-7xl pt-2 font-bold font-mono  mt-9 flex flex-row justify-center align-middle pt-10 "
+          className="mt-9 flex flex-row justify-center align-middle pt-10"
         >
-          <div className="rounded-3xl shadow-2xl bg-[#011627ff] text-white p-7">
-            <h1>Services</h1>
+          <div className="rounded-3xl shadow-2xl bg-[#011627ff] text-white p-5 md:p-7">
+            <h1 className="text-4xl md:text-7xl font-bold font-mono text-center">
+              Services
+            </h1>
           </div>
         </div>
+
         <div className="absolute">
           <Circle
             size={"20em"}
@@ -124,24 +133,19 @@ function LandingPage() {
         </div>
 
         {/*displays the Cards of services*/}
-
-        <section className="mt-[2rem] border-2  p-[5em] px-[8em] z-10 bg-slate-200  ">
-          {/*Card no 1*/}
-
-          <div className="group bg-slate-200 z-10 relative">
+        <section className="mt-8 border-2 p-5 md:p-10 z-10 bg-slate-200">
+          {/* Card no 1 */}
+          <div className="group bg-slate-200 z-10 relative rounded-3xl">
             <div
               data-aos="fade-up"
-              className=" rounded-3xl  shadow-xl  flex flex-row justify-between bg-slate-300  "
+              className="rounded-3xl shadow-xl flex flex-col md:flex-row justify-between bg-slate-300"
             >
-              <div className="pl-[5em]  w-[50%] py-[10em] z-10 ">
-                <h1
-                  data-aos=""
-                  className="text-xl font-semibold  group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300"
-                >
-                  <h1 className="text-2xl font-extrabold pb-5">
+              <div className="px-5 md:pl-20 w-full md:w-1/2 py-10 md:py-20 z-10">
+                <h1 className="text-xl md:text-2xl font-semibold group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300">
+                  <span className="text-2xl md:text-3xl font-extrabold pb-5">
                     Unlock Deeper Insights with AI-Powered Retrieval and
                     Generation:
-                  </h1>
+                  </span>
                   Our system doesn't just search your data—it enhances your
                   ability to uncover valuable insights by seamlessly blending
                   retrieval mechanisms with generative AI. Whether you're
@@ -157,38 +161,34 @@ function LandingPage() {
                   enabling faster, more informed decisions.
                 </h1>
               </div>
-
-              <div className=" pr-[5em] py-[5em]  group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300">
+              <div className="px-5 md:px-20 py-10 group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300">
                 <img
                   src={vector_db}
                   alt="Logo"
-                  className="w-[30em] rounded-3xl shadow-2xl "
+                  className="w-full md:w-[30em] rounded-3xl shadow-2xl"
                 />
               </div>
             </div>
           </div>
-          {/*Card no 2*/}
 
-          <div className="group bg-slate-200 z-10 relative">
+          {/* Card no 2 */}
+          <div className="group bg-slate-200 z-10 relative mt-11">
             <div
               data-aos="fade-up"
-              className=" rounded-3xl  shadow-xl  flex flex-row justify-between bg-slate-300   mt-11 "
+              className="rounded-3xl shadow-xl flex flex-col md:flex-row justify-between bg-slate-300"
             >
-              <div className=" pl-[5em] py-[5em] group-hover:shadow-none group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300">
+              <div className="px-5 py-5 group-hover:shadow-none group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300">
                 <img
                   src={pdfs}
                   alt="Logo"
-                  className="w-[30em] rounded-3xl shadow-2xl "
+                  className="w-full max-w-xs md:max-w-lg rounded-3xl shadow-2xl"
                 />
               </div>
-              <div className="pr-[5em]  w-[50%] py-[10em] z-10 ">
-                <h1
-                  data-aos=""
-                  className="text-xl font-semibold  group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300"
-                >
-                  <h1 className="text-2xl font-extrabold pb-5">
+              <div className="px-5 md:pr-20 w-full md:w-1/2 py-10 z-10">
+                <h1 className="text-xl md:text-2xl font-semibold group-hover:transition ease-in-out delay-150 group-hover:-translate-y-1 group-hover:scale-105 duration-300">
+                  <span className="text-2xl md:text-3xl font-extrabold pb-5">
                     Data Query Across Multiple Sources:
-                  </h1>
+                  </span>
                   Managing different types of data can be challenging. Whether
                   you're dealing with PDFs, websites, or plain text files, our
                   RAG system allows you to extract the information you need,
@@ -197,17 +197,20 @@ function LandingPage() {
                   <br />
                   PDFs: Unlock the information trapped in your documents with
                   natural language queries that fetch exactly what you're
-                  looking for. <br />
+                  looking for.
+                  <br />
                   Websites: Search your indexed websites for real-time, relevant
-                  data directly from your own site or public resources. <br />
+                  data directly from your own site or public resources.
+                  <br />
                   Text Files: Organize and query your text-based files with
                   precision, saving time and reducing manual searches.
                 </h1>
               </div>
             </div>
           </div>
-          {/*Donut shape*/}
-          <div className="relative bottom-[7em] ml-[93%] z-0  ">
+
+          {/* Donut shape */}
+          <div className="relative bottom-28 ml-auto z-0 md:ml-[100em]">
             <Donut
               color="#1e40af"
               size="180px"
@@ -251,23 +254,24 @@ function LandingPage() {
         </section>
         {/* About Us Section */}
         <section
-          ref={AboutSectionRef}
-          className="text-7xl pt-2 font-bold font-mono mt-16 flex flex-col justify-center align-middle text-center"
-        >
-          <div className="rounded-3xl shadow-2xl bg-[#0f305d] text-white p-7 mx-12">
-            <h1>About Us</h1>
-            <p className="text-2xl font-normal mt-4">
-              We are a team of passionate developers and engineers, focused on
-              solving complex problems with efficient software solutions. Our
-              goal is to empower businesses and individuals with cutting-edge
-              technologies that simplify workflows and enhance productivity.
-              Specializing in Retrieval-Augmented Generation (RAG) systems, we
-              provide customized solutions for querying PDFs, websites, text
-              files, and more. Let us help you harness the power of AI to unlock
-              new possibilities for your business.
-            </p>
-          </div>
-        </section>
+  ref={AboutSectionRef}
+  className="text-7xl pt-2 font-bold font-mono mt-16 flex flex-col justify-center align-middle text-center"
+>
+  <div className="rounded-3xl shadow-2xl bg-[#0f305d] text-white p-7 mx-12">
+    <h1>About Us</h1>
+    <p className="text-2xl font-normal mt-4">
+      We are a team of passionate developers and engineers, focused on
+      solving complex problems with efficient software solutions. Our
+      goal is to empower businesses and individuals with cutting-edge
+      technologies that simplify workflows and enhance productivity.
+      Specializing in Retrieval-Augmented Generation (RAG) systems, we
+      provide customized solutions for querying PDFs, websites, text
+      files, and more. Let us help you harness the power of AI to transform your data into actionable insights!
+    </p>
+
+  </div>
+</section>
+
       </body>
     </div>
   );
