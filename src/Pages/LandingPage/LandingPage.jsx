@@ -54,16 +54,18 @@ function LandingPage() {
         AboutSectionRef={AboutSectionRef}
       />
       <body>
-        <section className="mt-20 sm:mt-32 lg:mt-40 flex flex-col items-center text-center ">
+        <section className="mt-20 sm:mt-32 lg:mt-40 flex flex-col items-center text-center  ">
           {/* Circle Shape */}
-          <div className="   mb-6 sm:mb-10 sm:left-[1000%] border-2 border-cyan-50 lg:mb-10 overflow-x-hidden">
+          <div className="  relative bottom-7">
             <Circle
-              size={"100px"}
-              zIndex="2"
+              size={"100px"} 
+              zIndex="2"       
               color="linear-gradient(to right, #1e40af, #0f305d)"
-              className=" inline-block  ml-7 sm:ml-[33%]  "
+              className="inline-block border-2 ml-[60%]    sm:left-[20em]  "
             />
-          </div>
+            </div>
+            {/* border-2 border-cyan-200 pl-[60%] sm:ml-[33%] box-border overflow-hidden */}
+
           <div className="z-10 ">
             {/* Title Text */}
             <div className="mb-4">
@@ -123,12 +125,12 @@ function LandingPage() {
           </div>
         </div>
 
-        <div className="absolute">
+        <div className="relative">
           <Circle
             size={"20em"}
             zIndex="0"
             color="linear-gradient(to right, #1e40af, #0f305d)"
-            className="inline-block ml-[83%] "
+            className="inline-block sm:left-0 left-[8em]  "
           />
         </div>
 
