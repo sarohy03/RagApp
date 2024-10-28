@@ -1,47 +1,60 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 
-function Navbar({ scrollToSection, ServiceSectionRef, FaqSectionRef, AboutSectionRef }) {
+function Navbar({
+  scrollToSection,
+  ServiceSectionRef,
+  FaqSectionRef,
+  AboutSectionRef,
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const navigate = useNavigate();
 
   return (
     <>
       <header className="top-0 z-20 mx-auto flex flex-row justify-between items-center py-3">
         {/* Logo */}
-        <div className="p-8 ">
-          <h1 className="text-5xl font-extrabold text-[#011627ff]">THE SOLVER</h1>
-        </div>
+        <Link to={"/"} className="p-8 ">
+          <h1 className="text-5xl font-extrabold text-[#011627ff]">
+            THE SOLVER
+          </h1>
+        </Link>
 
         {/* Desktop Links - Centered */}
-        <div className="hidden lg:flex flex-row space-x-8 items-center mx-auto ml-[20%]">
-          <Button
-            label="Services"
-            onClick={() => scrollToSection(ServiceSectionRef)}
-            className="font-extrabold hover:bg-[#0f305d]"
-          />
-          <Button
-            label="FAQ"
-            onClick={() => scrollToSection(FaqSectionRef)}
-            className="font-extrabold hover:bg-[#0f305d]"
-          />
-          <Button
-            label="About Us"
-            onClick={() => scrollToSection(AboutSectionRef)}
-            className="font-extrabold hover:bg-[#0f305d]"
-          />
-        </div>
+        {scrollToSection ? (
+          <div className="hidden lg:flex flex-row space-x-8 items-center mx-auto ml-[20%]">
+            <Button
+              label="Services"
+              onClick={() => scrollToSection(ServiceSectionRef)}
+              className="font-extrabold hover:bg-[#0f305d]"
+            />
+            <Button
+              label="FAQ"
+              onClick={() => scrollToSection(FaqSectionRef)}
+              className="font-extrabold hover:bg-[#0f305d]"
+            />
+            <Button
+              label="About Us"
+              onClick={() => scrollToSection(AboutSectionRef)}
+              className="font-extrabold hover:bg-[#0f305d]"
+            />
+          </div>
+        ) : (
+          <></>
+        )}
 
         {/* Desktop Try It Button - Right Aligned */}
         <div className="hidden lg:flex p-8 ">
           <Button
             label="Try it"
             onClick={() => {
-              alert("its us");
+              navigate("/login");
             }}
             className="bg-[#0f305d] hover:bg-[#011627ff] font-extrabold"
           />

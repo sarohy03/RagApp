@@ -1,11 +1,17 @@
-import React from 'react'
-import LandingPage from "./Pages/LandingPage/LandingPage.jsx"
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import LandingPage from "./Pages/LandingPage/LandingPage.jsx";
+import LoginPage from "./Pages/LoginPage/LoginPage.jsx";
+import SignupPage from "./Pages/SignupPage/SignupPage.jsx";
 function App() {
   return (
-    <div className="bg-slate-200 z-0 h-[100%] m-0 box-border overflow-hidden">
-    <LandingPage />
-    </div>
-  )
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
+
+    </Routes>
+  );
 }
 
-export default App
+export default App;

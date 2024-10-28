@@ -46,7 +46,8 @@ function LandingPage() {
     AOS.init({ duration: 1000 });
   }, []);
   return (
-    <div className="overflow-hidden">
+    
+    <div className=" bg-slate-200 z-0 h-[100%] m-0 box-border overflow-hidden">
       <Navbar
         scrollToSection={scrollToSection}
         ServiceSectionRef={ServiceSectionRef}
@@ -56,12 +57,12 @@ function LandingPage() {
       <body>
         <section className="mt-20 sm:mt-32 lg:mt-40 flex flex-col items-center text-center  ">
           {/* Circle Shape */}
-          <div className="  relative bottom-7">
+          <div className="  relative ">
             <Circle
               size={"100px"} 
               zIndex="2"       
               color="linear-gradient(to right, #1e40af, #0f305d)"
-              className="inline-block border-2 ml-[60%]    sm:left-[20em]  "
+              className="inline-block border-2 ml-[60%]   sm:left-[20em]  "
             />
             </div>
             {/* border-2 border-cyan-200 pl-[60%] sm:ml-[33%] box-border overflow-hidden */}
