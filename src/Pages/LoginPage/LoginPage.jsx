@@ -9,8 +9,12 @@ function LoginPage() {
 
   return (
     // Main container for the login page
-    <div className="bg-slate-200 z-0 h-[100vh] m-0 box-border overflow-hidden">
+    <>
       <Navbar /> {/* Rendering the Navbar component */}
+    <div className="bg-slate-200 min-h-screen flex flex-col overflow-hidden box-border">
+
+
+
       {/* Animated section for the Circle background */}
       <div className="animate-moveFromRight">
         <div className="relative">
@@ -21,10 +25,11 @@ function LoginPage() {
           />
         </div>
       </div>
+
       {/* Main content area containing the sign-up and login sections */}
-      <div className="flex z-10 relative w-full mt-[13%]">
+      <div className="flex flex-col sm:flex-row lg: z-10 relative w-full mt-[13%]">
         {/* Left section for sign-up */}
-        <div className="hidden sm:flex flex-1 p-4 items-center justify-center">
+        <div className="flex flex-1 p-4 items-center justify-center">
           <div className="flex flex-col items-center justify-center p-5 bg-slate-200 rounded-3xl shadow-2xl animate-fadeIn">
             <h1 className="text-4xl md:text-7xl font-bold font-mono text-center">
               New here?
@@ -42,7 +47,7 @@ function LoginPage() {
         </div>
 
         {/* Right section for login form */}
-        <div className="flex-1 p-4 flex items-center justify-center animate-fadeIn">
+        <div className="relative  flex-1 p-4 flex items-center justify-center  animate-moveFromRight  lg:animate-moveToRight lg:right-[50%]">
           {/* Card container with increased size and rounded edges */}
           <form className="bg-[linear-gradient(to_right,#1e40af,#0f305d)] p-8 rounded-2xl shadow-lg w-full max-w-lg">
             <h2 className="text-3xl font-bold mb-6 text-white text-center">
@@ -101,6 +106,8 @@ function LoginPage() {
         </div>
       </div>
     </div>
+    </>
+
   );
 }
 

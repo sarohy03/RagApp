@@ -18,7 +18,7 @@ function Navbar({
 
   return (
     <>
-      <header className="top-0 z-20 mx-auto flex flex-row justify-between items-center py-3">
+      <header className="top-0 bg-slate-200 z-20 mx-auto flex flex-row justify-between items-center py-3">
         {/* Logo */}
         <Link to={"/"} className="p-8 ">
           <h1 className="text-5xl font-extrabold text-[#011627ff]">
@@ -98,7 +98,7 @@ function Navbar({
           <Button
             label="Try it"
             onClick={() => {
-              alert("its us");
+              navigate("/login");
               setIsOpen(false);
             }}
             className="bg-[#0f305d] hover:bg-[#011627ff] font-extrabold w-50% text-center"

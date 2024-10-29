@@ -8,6 +8,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useRef, useState } from "react";
 import { scrollToSection } from "./helper";
+
 function LandingPage() {
   const ServiceSectionRef = useRef(null);
   const FaqSectionRef = useRef(null);
